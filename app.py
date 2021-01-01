@@ -25,7 +25,7 @@ def post_transaction():
     return job.get_id()
 
 
-@app.route("/result/", methods=['GET'])
+@app.route("/result/<job_id>", methods=['GET'])
 def get_result(job_id):
     job = Job.fetch(job_id, connection=conn)
     if job.is_finished:
