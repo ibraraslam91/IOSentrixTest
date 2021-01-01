@@ -16,7 +16,7 @@ def transfer_request_to_bank_b(account_id, transfer_amount):
 
 @app.route("/", methods=['POST'])
 def post_transaction():
-    request_data = request.json()
+    request_data = request.get_json()
     account_id = request_data["account_id"]
     transfer_amount = request_data["amount"]
     job = q.enqueue_call(
